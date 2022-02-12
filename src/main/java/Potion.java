@@ -5,7 +5,7 @@ public class Potion extends Item implements Consumable{
     }
 
     @Override
-    public void consume() {
+    public void consume(Character personConsuming) {
         System.out.println("Error: Need to override the consume method in " +
                 getClass().getName() + " class");
     }

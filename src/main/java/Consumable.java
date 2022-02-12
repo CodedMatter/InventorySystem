@@ -1,3 +1,3 @@
 public interface Consumable {
-    void consume();
+    void consume(Character personConsuming);
 }

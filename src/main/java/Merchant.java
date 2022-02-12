@@ -11,12 +11,12 @@ public class Merchant extends Character{
     private void stockMerchantInventory(){
         for (int i = 0; i < 5; i++) {
             HealthPotion healthPotion = new HealthPotion();
-            inventory.addItemToInventory(healthPotion);
+           addItemToInventory(healthPotion);
         }
 
         for (int i = 0; i < 3; i++) {
             ManaPotion manaPotion = new ManaPotion();
-            inventory.addItemToInventory(manaPotion);
+            addItemToInventory(manaPotion);
         }
     }
 
@@ -41,8 +41,7 @@ public class Merchant extends Character{
     }
 
     private void openShop() {
-        inventory.printInventory();
-        // add shop logic here
+        Shop merchantShop = new Shop(getItemList());
     }
 
 }
