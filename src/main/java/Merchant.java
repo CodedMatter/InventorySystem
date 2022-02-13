@@ -1,10 +1,14 @@
+import java.nio.file.LinkPermission;
 import java.util.Scanner;
 
 public class Merchant extends Character{
 
+    Scanner input;
+
     public Merchant(String name) {
         super(name);
         stockMerchantInventory();
+        input = new Scanner(System.in);
     }
 
 
@@ -22,12 +26,7 @@ public class Merchant extends Character{
 
     public void talk(){
         System.out.println("Hello there! Want to see my goods");
-        Scanner input = new Scanner(System.in);
-        System.out.println("1) Yes");
-        System.out.println("2) No");
-        System.out.print("Your Answer: ");
-        String playerAnswer = input.nextLine().trim().
-                toLowerCase().replace(" ","");
+        String playerAnswer = yesOrNoResponse();
         if(playerAnswer.equals("2") || playerAnswer.equals("no")){
             System.out.println("Ok then lad. See you around");
         }
@@ -40,8 +39,25 @@ public class Merchant extends Character{
 
     }
 
+    private String yesOrNoResponse() {
+        System.out.println("1) Yes");
+        System.out.println("2) No");
+        System.out.print("Your Answer: ");
+        String playerAnswer = input.nextLine().trim().
+                toLowerCase().replace(" ","");
+        return playerAnswer;
+    }
+
     private void openShop() {
         Shop merchantShop = new Shop(getItemList());
+        System.out.println("Do you wish buy or sell?");
+        String playerAnswer = yesOrNoResponse();
+        if(playerAnswer.equals("1") || playerAnswer.equals("yes")){
+            merchantShop.printShop();
+        }
+        else if(playerAnswer.equals("2") || playerAnswer.equals("no")){
+
+        }
     }
 
 }
