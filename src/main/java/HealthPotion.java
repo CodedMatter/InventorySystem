@@ -4,6 +4,7 @@ public class HealthPotion extends Potion{
 
     public HealthPotion(){
         super("Health Potion");
+        super.setPrice(10);
         healingAmount = 10;
     }
 

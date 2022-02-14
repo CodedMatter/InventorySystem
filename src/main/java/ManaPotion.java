@@ -3,7 +3,9 @@ public class ManaPotion extends Potion{
 
     public ManaPotion() {
         super("Mana Potion");
+        super.setPrice(10);
         manaGained = 10;
+
     }
 
     @Override

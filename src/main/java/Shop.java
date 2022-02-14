@@ -8,22 +8,31 @@ public class Shop extends Inventory{
         super.setItemList(itemsToSell);
     }
 
-    public void itemSelection(Scanner input){
+    public Item itemSelection(Scanner input){
         System.out.println("Which item do you want to buy? ");
         String playerAnswer = input.nextLine();
+        Item itemSelected;
         if(PlayerInput.isPlayerInputID(playerAnswer)){
-
+            itemSelected = getItemByID(Integer.parseInt(playerAnswer));
         }
         else{
-
+            itemSelected = getItemByName(playerAnswer);
         }
-        // check if it matches the item id or name
-        // check if there is enough balance to purchase
-        // if enough balance to purchase then purchase
-        // remove from inventory
-        // add funds to merchant
-        // remove balance from player
-        // add item to player inventory
-        // loop
+        return itemSelected;
+    }
+
+    public boolean enoughBalanceToPurchaseItem(double playerBalance, Item itemToPurchase){
+        if(playerBalance>itemToPurchase.getPrice()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public double purchaseItem(Player player, Item itemToPurchase){
+        removeItemFromInventory(itemToPurchase);
+        player.lossBalance(itemToPurchase.getPrice());
+        player.addItemToInventory(itemToPurchase);
+        return itemToPurchase.getPrice();
     }
 }
