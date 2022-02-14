@@ -1,25 +1,29 @@
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Scanner;
 
 public class Shop extends Inventory{
-    Map<Integer,Item> itemsByID;
+
     public Shop(List<Item> itemsToSell){
-        super();
-        super.getItemList().addAll(itemsToSell);
-        itemsByID = new HashMap<>();
-        int itemID = 1;
-        for (Item item : getItemList()){
-            itemsByID.put(itemID,item);
-            itemID++;
-        }
+        super.setItemList(itemsToSell);
     }
 
-    public void printShop() {
-        for (int i = 1; i <= itemsByID.size(); i++) {
-            Item item = itemsByID.get(i);
-            System.out.println(i + ")" +
-                    item);
+    public void itemSelection(Scanner input){
+        System.out.println("Which item do you want to buy? ");
+        String playerAnswer = input.nextLine();
+        if(PlayerInput.isPlayerInputID(playerAnswer)){
+
         }
+        else{
+
+        }
+        // check if it matches the item id or name
+        // check if there is enough balance to purchase
+        // if enough balance to purchase then purchase
+        // remove from inventory
+        // add funds to merchant
+        // remove balance from player
+        // add item to player inventory
+        // loop
     }
 }

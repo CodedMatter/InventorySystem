@@ -53,7 +53,8 @@ public class Merchant extends Character{
         System.out.println("Do you wish buy or sell?");
         String playerAnswer = yesOrNoResponse();
         if(playerAnswer.equals("1") || playerAnswer.equals("yes")){
-            merchantShop.printShop();
+            merchantShop.printInventoryWithID();
+            merchantShop.itemSelection(input);
         }
         else if(playerAnswer.equals("2") || playerAnswer.equals("no")){
 
