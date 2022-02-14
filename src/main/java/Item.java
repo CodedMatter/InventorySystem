@@ -17,15 +17,16 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Name: " + name + " || Description: " + description;
     }
 
     public String getName() {
         return name;
     }
+    public String getDescription() {
+        return description;
+    }
+
     public double getPrice() {
         return price;
     }

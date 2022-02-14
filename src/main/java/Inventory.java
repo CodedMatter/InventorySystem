@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.StreamSupport;
 
 public class Inventory {
     private List<Item> itemList;
@@ -67,13 +68,28 @@ public class Inventory {
             System.out.println(item);
         }
     }
-
+    public String getInventoryWithoutIDAsString(){
+        String output = "";
+        for(Item item : itemList){
+            output += item + "\n";
+        }
+        return output;
+    }
     public void printInventoryWithID(){
-        for (int i = 0; i < itemsByID.size(); i++) {
+        for (int i = 1; i <= itemsByID.size(); i++) {
             Item item = itemsByID.get(i);
             System.out.println(i + ")" +
                     item);
         }
+    }
+    public String getInventoryWithIDAsString(){
+        String output = "";
+        for (int i = 1; i <= itemsByID.size(); i++) {
+            Item item = itemsByID.get(i);
+            output += i + ")" + item + "\n";
+        }
+        return output;
+
     }
 
 }
