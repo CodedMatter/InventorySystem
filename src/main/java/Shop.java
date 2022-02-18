@@ -48,6 +48,14 @@ public class Shop extends Inventory{
         characterSelling.receiveBalance(itemSelected.getPrice());
         characterSelling.removeItemFromInventory(itemSelected);
         return itemSelected.getPrice();
+    }
 
+    public boolean isShopEmpty(){
+        if(getItemList().size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
