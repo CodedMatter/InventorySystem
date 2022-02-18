@@ -44,30 +44,60 @@ public class Merchant extends Character{
     }
 
     private void openShop() {
-        Shop shop = new Shop(getItemList());
-        System.out.println("Do you wish buy or sell?");
-        System.out.println("1) Buy");
-        System.out.println("2) Sell");
-        System.out.println("3) Exit");
-        String playerAnswer = playerInput();
-        if(playerAnswer.equals("1") || playerAnswer.equals("buy")){
-            shop.printInventoryWithID();
-            Item itemSelected = shop.itemSelection(input);
-            if(itemSelected==null){
-                // ask to input new choice or exit
-            }else{
-                if(shop.enoughBalanceToPurchaseItem(playerInteractingWith.getBalance(),itemSelected)){
-                    receiveBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
-                    removeItemFromInventory(itemSelected);
+        boolean exitShop = false;
+        String playerAnswer = "";
+        System.out.println("------------------------------");
+        while(!exitShop){
+            System.out.println("Do you wish buy or sell?");
+            System.out.println("1) Buy");
+            System.out.println("2) Sell");
+            System.out.println("3) Exit");
+            playerAnswer = playerInput();
+
+            if(playerAnswer.equals("1") || playerAnswer.equals("buy")){
+                Shop shop = new Shop(getItemList());
+                shop.printInventoryWithID();
+                System.out.println("Which item do you want to buy? ");
+                Item itemSelected = shop.itemSelection(input);
+                if(itemSelected==null){
+                    // ask to input new choice or exit
                 }
                 else{
-                    // tell player not enough balance input new choice or exit
+                    if(shop.enoughBalanceToPurchaseItem(playerInteractingWith.getBalance(),itemSelected)){
+                        receiveBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
+                        removeItemFromInventory(itemSelected);
+                    }
+                    else{
+                        // tell player not enough balance input new choice or exit
+                        System.out.println("You dont have enough for that.");
+                    }
                 }
+            }
+            else if(playerAnswer.equals("2") || playerAnswer.equals("sell")){
+                Shop shop = new Shop(playerInteractingWith.getItemList());
+                shop.printInventoryWithID();
+                System.out.println("Which item do you want to sell? ");
+                Item itemSelected = shop.itemSelection(input);
+                if(itemSelected==null){
+                    // ask to input new choice or exit
+                }
+                else{
+                    if(shop.enoughBalanceToSellItem(getBalance(),itemSelected)){
+                        loseBalance(shop.sellItem(playerInteractingWith,itemSelected));
+                        addItemToInventory(itemSelected);
+                    }
+                    else{
+                        System.out.println("I dont have enough to buy that from you.");
+                    }
+                }
+            }
+            else if (playerAnswer.equals("3") || playerAnswer.equals("exit")){
+                exitShop = true;
 
             }
-        }
-        else if(playerAnswer.equals("2") || playerAnswer.equals("sell")){
-
+            else{
+                System.out.println("I dont understand you lad.");
+            }
         }
     }
 

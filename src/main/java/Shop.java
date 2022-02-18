@@ -1,4 +1,3 @@
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +8,6 @@ public class Shop extends Inventory{
     }
 
     public Item itemSelection(Scanner input){
-        System.out.println("Which item do you want to buy? ");
         String playerAnswer = input.nextLine();
         Item itemSelected;
         if(PlayerInput.isPlayerInputID(playerAnswer)){
@@ -29,10 +27,27 @@ public class Shop extends Inventory{
             return false;
         }
     }
-    public double purchaseItem(Player player, Item itemToPurchase){
+    public boolean enoughBalanceToSellItem(double shopKeeperBalance, Item itemToSell){
+        if(shopKeeperBalance>itemToSell.getPrice()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public double purchaseItem(Character characterBuying, Item itemToPurchase){
         removeItemFromInventory(itemToPurchase);
-        player.lossBalance(itemToPurchase.getPrice());
-        player.addItemToInventory(itemToPurchase);
+        characterBuying.loseBalance(itemToPurchase.getPrice());
+        characterBuying.addItemToInventory(itemToPurchase);
         return itemToPurchase.getPrice();
+    }
+
+    public double sellItem(Character characterSelling, Item itemSelected) {
+        removeItemFromInventory(itemSelected);
+        characterSelling.receiveBalance(itemSelected.getPrice());
+        characterSelling.removeItemFromInventory(itemSelected);
+        return itemSelected.getPrice();
+
     }
 }

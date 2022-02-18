@@ -52,7 +52,7 @@ public class Character extends Inventory {
     public void receiveBalance(double moneyGained){
         balance += moneyGained;
     }
-    public void lossBalance(double moneyLost){
+    public void loseBalance(double moneyLost){
         balance -= moneyLost;
     }
 
