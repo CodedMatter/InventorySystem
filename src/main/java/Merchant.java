@@ -7,7 +7,7 @@ public class Merchant extends Character{
 
     public Merchant(String name) {
         super(name);
-        super.setBalance(100);
+        super.addBalance(100);
         stockMerchantInventory();
         input = new Scanner(System.in);
     }
@@ -76,11 +76,10 @@ public class Merchant extends Character{
                     }
                     else{
                         if(shop.enoughBalanceToPurchaseItem(playerInteractingWith.getBalance(),itemSelected)){
-                            receiveBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
+                            addBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
                             removeItemFromInventory(itemSelected);
                         }
                         else{
-                            // tell player not enough balance input new choice or exit
                             System.out.println("You dont have enough for that.");
                         }
                     }
@@ -104,7 +103,7 @@ public class Merchant extends Character{
                     }
                     else{
                         if(shop.enoughBalanceToSellItem(getBalance(),itemSelected)){
-                            loseBalance(shop.sellItem(playerInteractingWith,itemSelected));
+                            removeBalance(shop.sellItem(playerInteractingWith,itemSelected));
                             addItemToInventory(itemSelected);
                         }
                         else{
@@ -130,5 +129,4 @@ public class Merchant extends Character{
         return input.nextLine().trim().
                 toLowerCase().replace(" ","");
     }
-
 }

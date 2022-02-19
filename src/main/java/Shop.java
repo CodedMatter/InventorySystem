@@ -38,14 +38,14 @@ public class Shop extends Inventory{
 
     public double purchaseItem(Character characterBuying, Item itemToPurchase){
         removeItemFromInventory(itemToPurchase);
-        characterBuying.loseBalance(itemToPurchase.getPrice());
+        characterBuying.removeBalance(itemToPurchase.getPrice());
         characterBuying.addItemToInventory(itemToPurchase);
         return itemToPurchase.getPrice();
     }
 
     public double sellItem(Character characterSelling, Item itemSelected) {
         removeItemFromInventory(itemSelected);
-        characterSelling.receiveBalance(itemSelected.getPrice());
+        characterSelling.addBalance(itemSelected.getPrice());
         characterSelling.removeItemFromInventory(itemSelected);
         return itemSelected.getPrice();
     }

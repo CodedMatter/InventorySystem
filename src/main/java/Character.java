@@ -35,10 +35,6 @@ public class Character extends Inventory {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public Map<Stat, Integer> getStats() {
         return stats;
     }
@@ -49,10 +45,10 @@ public class Character extends Inventory {
         return stats.containsKey(stat);
     }
 
-    public void receiveBalance(double moneyGained){
+    public void addBalance(double moneyGained){
         balance += moneyGained;
     }
-    public void loseBalance(double moneyLost){
+    public void removeBalance(double moneyLost){
         balance -= moneyLost;
     }
 

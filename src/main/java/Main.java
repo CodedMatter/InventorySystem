@@ -22,7 +22,7 @@ public class Main {
                 merchant.talkWith(player);
             }
             else{
-                System.out.println("Input A Valid Choice;");
+                System.out.println("Input A Valid Choice");
             }
         }
     }
