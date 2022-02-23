@@ -38,19 +38,20 @@ public class Character extends Inventory {
     public Map<Stat, Integer> getStats() {
         return stats;
     }
+
     public int getSpecificStat(Stat stat){
         return stats.get(stat);
     }
+
+    public void changeStat(Stat stat, int amount){
+        stats.put(stat,(stats.get(stat) + amount));
+    }
+
     public boolean hasStat(Stat stat) {
         return stats.containsKey(stat);
     }
 
-    public void addBalance(double moneyGained){
-        balance += moneyGained;
+    public void changeBalance(double amountOfMoney){
+        balance += amountOfMoney;
     }
-    public void removeBalance(double moneyLost){
-        balance -= moneyLost;
-    }
-
-
 }

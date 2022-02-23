@@ -7,7 +7,7 @@ public class Merchant extends Character{
 
     public Merchant(String name) {
         super(name);
-        super.addBalance(100);
+        super.changeBalance(100);
         stockMerchantInventory();
         input = new Scanner(System.in);
     }
@@ -64,7 +64,8 @@ public class Merchant extends Character{
             if(playerAnswer.equals("1") || playerAnswer.equals("buy")){
                 Shop shop = new Shop(getItemList());
                 if(!shop.isShopEmpty()){
-                    shop.printInventoryWithID();
+                    //shop.printInventoryWithID();
+                    System.out.println(shop.getInventoryWithIDAsString());
                     System.out.println("Which item do you want to buy? ");
                     Item itemSelected = shop.itemSelection(input);
                     if(itemSelected==null){
@@ -76,7 +77,7 @@ public class Merchant extends Character{
                     }
                     else{
                         if(shop.enoughBalanceToPurchaseItem(playerInteractingWith.getBalance(),itemSelected)){
-                            addBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
+                            changeBalance(shop.purchaseItem(playerInteractingWith,itemSelected));
                             removeItemFromInventory(itemSelected);
                         }
                         else{
@@ -91,7 +92,8 @@ public class Merchant extends Character{
             else if(playerAnswer.equals("2") || playerAnswer.equals("sell")){
                 Shop shop = new Shop(playerInteractingWith.getItemList());
                 if(!shop.isShopEmpty()){
-                    shop.printInventoryWithID();
+                    //shop.printInventoryWithID();
+                    System.out.println(shop.getInventoryWithIDAsString());
                     System.out.println("Which item do you want to sell? ");
                     Item itemSelected = shop.itemSelection(input);
                     if(itemSelected==null){
@@ -103,7 +105,7 @@ public class Merchant extends Character{
                     }
                     else{
                         if(shop.enoughBalanceToSellItem(getBalance(),itemSelected)){
-                            removeBalance(shop.sellItem(playerInteractingWith,itemSelected));
+                            changeBalance(-shop.sellItem(playerInteractingWith,itemSelected));
                             addItemToInventory(itemSelected);
                         }
                         else{

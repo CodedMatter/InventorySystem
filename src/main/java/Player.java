@@ -2,7 +2,7 @@ public class Player extends Character{
 
     public Player(String name) {
         super(name);
-        super.addBalance(100);
+        super.changeBalance(100);
     }
 
     public void inspectPlayer() {

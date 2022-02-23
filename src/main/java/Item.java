@@ -14,17 +14,14 @@ public class Item {
         price = 0;
     }
 
-
-    @Override
-    public String toString() {
-        return "Name: " + name + " || Description: " + description;
-    }
-
     public String getName() {
         return name;
     }
     public String getDescription() {
         return description;
+    }
+    public void setDescription(String description){
+        this.description = description;
     }
 
     public double getPrice() {
@@ -37,5 +34,10 @@ public class Item {
         else {
             price = newItemPrice;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + " || Description: " + description;
     }
 }

@@ -1,4 +1,4 @@
-public abstract class Potion extends Item implements Consumable{
+public class Potion extends Item implements Consumable{
 
     public Stat statToEffect;
     public int amount;

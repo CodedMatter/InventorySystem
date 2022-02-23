@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Shop extends Inventory{
 
     public Shop(List<Item> itemsToSell){
-        super.setItemList(itemsToSell);
+        super.createItemListFromList(itemsToSell);
     }
 
     public Item itemSelection(Scanner input){
@@ -38,14 +38,14 @@ public class Shop extends Inventory{
 
     public double purchaseItem(Character characterBuying, Item itemToPurchase){
         removeItemFromInventory(itemToPurchase);
-        characterBuying.removeBalance(itemToPurchase.getPrice());
+        characterBuying.changeBalance(-itemToPurchase.getPrice());
         characterBuying.addItemToInventory(itemToPurchase);
         return itemToPurchase.getPrice();
     }
 
     public double sellItem(Character characterSelling, Item itemSelected) {
         removeItemFromInventory(itemSelected);
-        characterSelling.addBalance(itemSelected.getPrice());
+        characterSelling.changeBalance(itemSelected.getPrice());
         characterSelling.removeItemFromInventory(itemSelected);
         return itemSelected.getPrice();
     }

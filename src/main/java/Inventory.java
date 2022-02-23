@@ -17,7 +17,7 @@ public class Inventory {
     public List<Item> getItemList() {
         return itemList;
     }
-    public void setItemList(List<Item> itemList){
+    public void createItemListFromList(List<Item> itemList){
         for (Item item : itemList){
             addItemToInventory(item);
         }
@@ -43,7 +43,6 @@ public class Inventory {
         lastIDForItemsAdded++;
         itemList.add(itemToAdd);
         itemsByID.put(lastIDForItemsAdded,itemToAdd);
-
     }
 
     public void removeItemFromInventory(Item itemToRemove){
@@ -62,24 +61,12 @@ public class Inventory {
         }
     }
 
-    public void printInventoryWithoutID(){
-        for(Item item : itemList){
-            System.out.println(item);
-        }
-    }
     public String getInventoryWithoutIDAsString(){
         String output = "";
         for(Item item : itemList){
             output += item + "\n";
         }
         return output;
-    }
-    public void printInventoryWithID(){
-        for (int i = 1; i <= itemsByID.size(); i++) {
-            Item item = itemsByID.get(i);
-            System.out.println(i + ")" +
-                    item);
-        }
     }
     public String getInventoryWithIDAsString(){
         String output = "";
