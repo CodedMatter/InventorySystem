@@ -2,16 +2,19 @@ public class Item {
     private final String name;
     private String description;
     private double price;
+    private Category category;
 
-    public Item(String name, String description){
+    public Item(String name, String description, Category category){
         this.name = name;
         this.description = description;
         price = 0;
+        this.category = category;
     }
 
-    public Item(String name){
+    public Item(String name, Category category){
         this.name = name;
         price = 0;
+        this.category =  category;
     }
 
     public String getName() {
@@ -34,6 +37,10 @@ public class Item {
         else {
             price = newItemPrice;
         }
+    }
+
+    public Category getCategory(){
+        return category;
     }
 
     @Override
