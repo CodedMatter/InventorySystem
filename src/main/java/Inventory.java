@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Inventory {
     private List<Item> itemList;
@@ -59,6 +56,19 @@ public class Inventory {
             itemsByID.put(lastIDForItemsAdded,item);
 
         }
+    }
+
+    public List<Item> categoriesByPrice(){
+        List<Item> organizedItems = new ArrayList<>();
+        organizedItems.addAll(getItemList());
+
+        Collections.sort(organizedItems, new Comparator<Item>() {
+            @Override
+            public int compare(Item item1, Item item2) {
+                return (int) (item1.getPrice()-item2.getPrice());
+            }
+        });
+        return organizedItems;
     }
 
     public String getInventoryWithoutIDAsString(){

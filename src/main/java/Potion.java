@@ -3,7 +3,7 @@ public class Potion extends Item implements Consumable{
     public Stat statToEffect;
     public int amount;
     public Potion(String name, Stat statToEffect, int amount){
-        super(name);
+        super(name,Category.POTION);
         this.statToEffect = statToEffect;
         this.amount = amount;
     }

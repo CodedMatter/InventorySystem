@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -5,6 +6,11 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Player player = new Player("Brian");
         Merchant merchant = new Merchant("Merchant");
+
+        for (int i = 0; i < player.getItemList().size(); i++) {
+            List<Item> items = player.categoriesByPrice();
+            System.out.println(items.get(i));
+        }
 
         boolean isValidAnswer = false;
         while (!isValidAnswer){
