@@ -71,6 +71,18 @@ public class Inventory {
         return organizedItems;
     }
 
+    public List<Item> categorizeByName(){
+        List<Item> organizedItems = new ArrayList<>();
+        organizedItems.addAll(getItemList());
+        Collections.sort(organizedItems, new Comparator<Item>() {
+            @Override
+            public int compare(Item item1, Item item2) {
+                return item1.getName().compareTo(item2.getName());
+            }
+        });
+        return organizedItems;
+    }
+
     public String getInventoryWithoutIDAsString(){
         String output = "";
         for(Item item : itemList){

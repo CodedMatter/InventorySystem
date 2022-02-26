@@ -7,9 +7,17 @@ public class Main {
         Player player = new Player("Brian");
         Merchant merchant = new Merchant("Merchant");
 
+        List<Item> itemsByPrice = player.categoriesByPrice();
         for (int i = 0; i < player.getItemList().size(); i++) {
-            List<Item> items = player.categoriesByPrice();
-            System.out.println(items.get(i));
+            System.out.println(itemsByPrice.get(i));
+        }
+
+        System.out.println();
+        System.out.println();
+
+        List<Item> itemsByName = player.categorizeByName();
+        for (int i = 0; i < player.getItemList().size(); i++) {
+            System.out.println(itemsByName.get(i));
         }
 
         boolean isValidAnswer = false;
