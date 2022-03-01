@@ -3,18 +3,21 @@ public class Item {
     private String description;
     private double price;
     private Category category;
+    private double weight;
 
-    public Item(String name, String description, Category category){
+    public Item(String name, String description, Category category, double weight){
         this.name = name;
         this.description = description;
         price = 0;
         this.category = category;
+        this.weight = weight;
     }
 
     public Item(String name, Category category){
         this.name = name;
         price = 0;
         this.category =  category;
+        weight = 0;
     }
 
     public String getName() {
@@ -43,8 +46,14 @@ public class Item {
         return category;
     }
 
+    public double getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
-        return "Name: " + name + " || Description: " + description;
+        return "Name: " + name + "|| Category: " + category +
+                "|| Price: " + price + "|| Weight: " + weight +
+                "kg" + " || Description: " + description;
     }
 }
