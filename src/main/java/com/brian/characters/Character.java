@@ -1,3 +1,8 @@
+package com.brian.characters;
+
+import com.brian.Inventory;
+import com.brian.Stat;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +23,13 @@ public class Character extends Inventory {
         description = "";
         this.stats = stats;
         balance = 0;
+    }
+
+    public Character(String name, String description, Map<Stat, Integer> stats, double balance) {
+        this.name = name;
+        this.description = description;
+        this.stats = stats;
+        this.balance = balance;
     }
 
     public String getName() {

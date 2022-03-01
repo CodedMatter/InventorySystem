@@ -1,4 +1,7 @@
-import org.junit.Assert;
+import com.brian.Inventory;
+import com.brian.items.HealthPotion;
+import com.brian.items.Item;
+import com.brian.items.ManaPotion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -35,7 +38,7 @@ class InventoryTest {
 //    void addItemToInventory() {
 //        int sizeOfListBeforeAddingItem = inventory.getItemList().size();
 //        // create a new item to add to inventory
-//        Potion potion = new Potion("Unknown Potion");
+//        com.brian.items.Potion potion = new com.brian.items.Potion("Unknown com.brian.items.Potion");
 //
 //        // add item to the list in inventory
 //        inventory.addItemToInventory(potion);
@@ -47,7 +50,7 @@ class InventoryTest {
 //
 //        // check if the item can be found in list
 //        assertTrue(inventory.getItemList().contains(potion),
-//                "Potion should be found in list");
+//                "com.brian.items.Potion should be found in list");
 //
 //    }
 
@@ -55,21 +58,21 @@ class InventoryTest {
 //    void removeItemFromInventory() {
 //        addItemToInventory();
 //        // get the last item added
-//        Item item = inventory.getItemList().get(inventory.getItemList().size()-1);
+//        Items.Item item = inventory.getItemList().get(inventory.getItemList().size()-1);
 //        int sizeOfListBeforeRemovingItem = inventory.getItemList().size();
 //        inventory.removeItemFromInventory(item);
 //        assertEquals(sizeOfListBeforeRemovingItem-1,
 //                inventory.getItemList().size(),
 //                "Should be an item less than initial size");
 //        assertFalse(inventory.getItemList().contains(item),
-//                "Item should not be found since it was removed");
+//                "Items.Item should not be found since it was removed");
 //    }
 
     @Test
     void getAllItemsByID() {
         // create how the map is supposed to be return
         // with the same items as inventory
-        Map<Integer,Item> expectedMap = new HashMap<>();
+        Map<Integer, Item> expectedMap = new HashMap<>();
         for (int i = 1; i <= 5; i++) {
             Item item = inventory.getItemList().get(i-1);
             expectedMap.put(i,item);
@@ -84,7 +87,7 @@ class InventoryTest {
 //    @Test
 //    void getItemByID() {
 //        // add item to inventory
-//        Item item = new Potion("Unknown Potion");
+//        Items.Item item = new com.brian.items.Potion("Unknown com.brian.items.Potion");
 //        inventory.addItemToInventory(item);
 //
 //        // id of item should be the size of the

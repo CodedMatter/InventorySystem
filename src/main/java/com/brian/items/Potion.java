@@ -1,9 +1,14 @@
-public class Potion extends Item implements Consumable{
+package com.brian.items;
+
+import com.brian.Category;
+import com.brian.Stat;
+
+public class Potion extends Item implements Consumable {
 
     public Stat statToEffect;
     public int amount;
     public Potion(String name, Stat statToEffect, int amount){
-        super(name,Category.POTION);
+        super(name, Category.POTION);
         this.statToEffect = statToEffect;
         this.amount = amount;
     }

@@ -1,3 +1,7 @@
+package com.brian;
+
+import com.brian.items.Item;
+
 import java.util.*;
 
 public class Inventory {

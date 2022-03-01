@@ -1,3 +1,5 @@
+package com.brian.items;
+
 public abstract class Armor implements Equipable {
     int defenceAmount;
 

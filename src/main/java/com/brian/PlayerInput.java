@@ -1,3 +1,5 @@
+package com.brian;
+
 public class PlayerInput {
     public static boolean isPlayerInputID(String playerInput){
         try{

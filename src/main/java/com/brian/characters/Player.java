@@ -1,4 +1,9 @@
-public class Player extends Character{
+package com.brian.characters;
+
+import com.brian.items.HealthPotion;
+import com.brian.items.ManaPotion;
+
+public class Player extends Character {
 
     public Player(String name) {
         super(name);

@@ -1,3 +1,7 @@
+package com.brian.items;
+
+import com.brian.Category;
+
 public class Item {
     private final String name;
     private String description;
@@ -52,7 +56,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Name: " + name + "|| Category: " + category +
+        return "Name: " + name + "|| com.brian.Category: " + category +
                 "|| Price: " + price + "|| Weight: " + weight +
                 "kg" + " || Description: " + description;
     }

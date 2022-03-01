@@ -1,3 +1,8 @@
+package com.brian;
+
+import com.brian.characters.Character;
+import com.brian.items.Item;
+
 import java.util.List;
 import java.util.Scanner;
 

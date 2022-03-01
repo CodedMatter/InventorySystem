@@ -1,6 +1,13 @@
+package com.brian.characters;
+
+import com.brian.Shop;
+import com.brian.items.HealthPotion;
+import com.brian.items.Item;
+import com.brian.items.ManaPotion;
+
 import java.util.Scanner;
 
-public class Merchant extends Character{
+public class Merchant extends Character {
 
     Scanner input;
     Player playerInteractingWith;
