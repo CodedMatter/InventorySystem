@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Character extends Inventory {
-    private final String name;
+    private String name;
     private String description;
     private Map<Stat, Integer> stats;
     private double balance;
@@ -35,6 +35,9 @@ public class Character extends Inventory {
     public String getName() {
         return name;
     }
+    public void setName(String name){
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;
@@ -55,15 +58,17 @@ public class Character extends Inventory {
         return stats.get(stat);
     }
 
-    public void changeStat(Stat stat, int amount){
+    public int changeStatByAmount(Stat stat, int amount){
         stats.put(stat,(stats.get(stat) + amount));
+        return getSpecificStat(stat);
     }
 
     public boolean hasStat(Stat stat) {
         return stats.containsKey(stat);
     }
 
-    public void changeBalance(double amountOfMoney){
+    public double changeBalance(double amountOfMoney){
         balance += amountOfMoney;
+        return balance;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Shop extends Inventory{
 
     public Shop(List<Item> itemsToSell){
-        super.createItemListFromList(itemsToSell);
+        super.addListToItems(itemsToSell);
     }
 
     public Item itemSelection(Scanner input){

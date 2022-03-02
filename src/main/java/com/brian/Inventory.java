@@ -18,10 +18,12 @@ public class Inventory {
     public List<Item> getItemList() {
         return itemList;
     }
-    public void createItemListFromList(List<Item> itemList){
+
+    public List<Item> addListToItems(List<Item> itemList){
         for (Item item : itemList){
             addItemToInventory(item);
         }
+        return getItemList();
     }
 
     public Map<Integer,Item> getAllItemsByID(){

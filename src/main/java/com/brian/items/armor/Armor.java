@@ -1,5 +1,6 @@
-package com.brian.items;
+package com.brian.items.armor;
 
+import com.brian.interfaces.Equipable;
 public abstract class Armor implements Equipable {
     int defenceAmount;
 

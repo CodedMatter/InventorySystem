@@ -1,3 +1,5 @@
+package com.brian;
+
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
