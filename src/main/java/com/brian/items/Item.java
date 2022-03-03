@@ -1,6 +1,6 @@
 package com.brian.items;
 
-import com.brian.Category;
+import com.brian.enums.Category;
 
 public class Item {
     private final String name;
@@ -56,7 +56,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Name: " + name + "|| com.brian.Category: " + category +
+        return "Name: " + name + "|| Category: " + category +
                 "|| Price: " + price + "|| Weight: " + weight +
                 "kg" + " || Description: " + description;
     }

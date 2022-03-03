@@ -1,7 +1,10 @@
 package com.brian.characters;
 
 import com.brian.Inventory;
-import com.brian.Stat;
+import com.brian.enums.ArmorPlacement;
+import com.brian.enums.Stat;
+import com.brian.items.armor.Armor;
+import com.brian.items.weapons.Weapon;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,18 +13,34 @@ public class Character extends Inventory {
     private String name;
     private String description;
     private Map<Stat, Integer> stats;
+    private Map<ArmorPlacement, Armor> armorEquiped;
+    Weapon equippedWeapon;
     private double balance;
 
     public Character(String name){
         this.name = name;
         description = "";
         stats = new HashMap<>();
+        armorEquiped = new HashMap<>();
+        armorEquiped.put(ArmorPlacement.HEAD,null);
+        armorEquiped.put(ArmorPlacement.CHEST,null);
+        armorEquiped.put(ArmorPlacement.ARMS,null);
+        armorEquiped.put(ArmorPlacement.PANTS,null);
+        armorEquiped.put(ArmorPlacement.BOOTS,null);
+        equippedWeapon = null;
         balance = 0;
     }
     public Character(String name,Map<Stat,Integer> stats){
         this.name = name;
         description = "";
         this.stats = stats;
+        armorEquiped = new HashMap<>();
+        armorEquiped.put(ArmorPlacement.HEAD,null);
+        armorEquiped.put(ArmorPlacement.CHEST,null);
+        armorEquiped.put(ArmorPlacement.ARMS,null);
+        armorEquiped.put(ArmorPlacement.PANTS,null);
+        armorEquiped.put(ArmorPlacement.BOOTS,null);
+        equippedWeapon = null;
         balance = 0;
     }
 
@@ -29,6 +48,13 @@ public class Character extends Inventory {
         this.name = name;
         this.description = description;
         this.stats = stats;
+        armorEquiped = new HashMap<>();
+        armorEquiped.put(ArmorPlacement.HEAD,null);
+        armorEquiped.put(ArmorPlacement.CHEST,null);
+        armorEquiped.put(ArmorPlacement.ARMS,null);
+        armorEquiped.put(ArmorPlacement.PANTS,null);
+        armorEquiped.put(ArmorPlacement.BOOTS,null);
+        equippedWeapon = null;
         this.balance = balance;
     }
 

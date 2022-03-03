@@ -1,4 +1,4 @@
-package com.brian;
+package com.brian.enums;
 
 public enum Stat {
     HEALTH,

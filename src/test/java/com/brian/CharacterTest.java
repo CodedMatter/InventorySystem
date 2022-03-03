@@ -1,9 +1,8 @@
 package com.brian;
 
-import com.brian.Stat;
+import com.brian.enums.Stat;
 import com.brian.characters.Character;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -76,4 +75,7 @@ class CharacterTest {
         Assert.assertEquals("Adding 20 to balance should be 120",120,character.changeBalance(20),0.01);
         Assert.assertEquals("Removing 40 from balance should be 80",80,character.changeBalance(-40), 0.01);
     }
+
+    //TODO add a tests for armor
+
 }

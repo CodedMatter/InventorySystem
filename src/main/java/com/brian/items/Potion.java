@@ -1,8 +1,8 @@
 package com.brian.items;
 
 import com.brian.characters.Character;
-import com.brian.Category;
-import com.brian.Stat;
+import com.brian.enums.Category;
+import com.brian.enums.Stat;
 import com.brian.interfaces.Consumable;
 
 public class Potion extends Item implements Consumable {

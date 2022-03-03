@@ -1,10 +1,10 @@
 package com.brian.items;
 
-import com.brian.Stat;
+import com.brian.enums.Stat;
 
 public class HealthPotion extends Potion {
     public HealthPotion(){
-        super("Health com.brian.items.Potion", Stat.HEALTH, 10);
+        super("Health Potion", Stat.HEALTH, 10);
         super.setPrice(10);
     }
 }

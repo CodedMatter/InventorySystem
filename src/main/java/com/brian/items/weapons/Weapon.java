@@ -1,5 +1,5 @@
 package com.brian.items.weapons;
-import com.brian.Category;
+import com.brian.enums.Category;
 import com.brian.interfaces.Equipable;
 import com.brian.items.Item;
 

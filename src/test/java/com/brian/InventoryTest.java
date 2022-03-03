@@ -47,7 +47,9 @@ class InventoryTest {
 
     @Test
     void getAllItemsByID() {
-
+        Item item = inventory.getItemList().get(1);
+        Assert.assertEquals("Should return the first item on the item list",
+                item,inventory.getAllItemsByID().get(1));
     }
 
     @Test
