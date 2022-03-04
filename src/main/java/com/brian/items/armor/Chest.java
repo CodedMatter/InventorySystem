@@ -1,9 +1,11 @@
 package com.brian.items.armor;
 
+import com.brian.enums.ArmorPlacement;
+
 public class Chest extends Armor {
 
-    Chest(int defenceAmount) {
-        super(defenceAmount);
+    public Chest(String name, int defenceAmount) {
+        super(name, defenceAmount, ArmorPlacement.CHEST);
     }
 
     @Override

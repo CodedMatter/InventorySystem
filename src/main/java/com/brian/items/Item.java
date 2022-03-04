@@ -51,6 +51,7 @@ public class Item {
     }
 
     public double getWeight() {
+        System.out.println();
         return weight;
     }
 
@@ -60,4 +61,5 @@ public class Item {
                 "|| Price: " + price + "|| Weight: " + weight +
                 "kg" + " || Description: " + description;
     }
+
 }

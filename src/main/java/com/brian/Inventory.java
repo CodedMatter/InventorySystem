@@ -89,6 +89,30 @@ public class Inventory {
         return organizedItems;
     }
 
+    public List<Item> categorizeByWeight(){
+        List<Item> organizedItems = new ArrayList<>();
+        organizedItems.addAll(getItemList());
+        Collections.sort(organizedItems, new Comparator<Item>() {
+            @Override
+            public int compare(Item item1, Item item2) {
+                return (int)(item1.getWeight()-item2.getWeight());
+            }
+        });
+        return organizedItems;
+    }
+
+    public List<Item> catergorizeByCategory(){
+        List<Item> organizedItems = new ArrayList<>();
+        organizedItems.addAll(getItemList());
+        Collections.sort(organizedItems, new Comparator<Item>() {
+            @Override
+            public int compare(Item item1, Item item2) {
+                return item1.getCategory().compareTo(item2.getCategory());
+            }
+        });
+        return organizedItems;
+    }
+
     public String getInventoryWithoutIDAsString(){
         String output = "";
         for(Item item : itemList){

@@ -28,8 +28,8 @@ public class Main {
 
         boolean isValidAnswer = false;
         while (!isValidAnswer){
-            System.out.println("1) Inspect com.brian.characters.Player");
-            System.out.println("2) Talk To com.brian.characters.Merchant");
+            System.out.println("1) Inspect Player");
+            System.out.println("2) Talk To Merchant");
             System.out.print("Your Choice: ");
             String playerAnswer = input.nextLine().replace(" ", "");
             if(playerAnswer.equals("1")){

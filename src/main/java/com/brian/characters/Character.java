@@ -8,13 +8,14 @@ import com.brian.items.weapons.Weapon;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Character extends Inventory {
     private String name;
     private String description;
     private Map<Stat, Integer> stats;
     private Map<ArmorPlacement, Armor> armorEquiped;
-    Weapon equippedWeapon;
+    private Weapon equippedWeapon;
     private double balance;
 
     public Character(String name){
@@ -43,7 +44,6 @@ public class Character extends Inventory {
         equippedWeapon = null;
         balance = 0;
     }
-
     public Character(String name, String description, Map<Stat, Integer> stats, double balance) {
         this.name = name;
         this.description = description;
@@ -91,6 +91,33 @@ public class Character extends Inventory {
 
     public boolean hasStat(Stat stat) {
         return stats.containsKey(stat);
+    }
+
+    public Map<ArmorPlacement, Armor> getArmorEquipped(){
+        return armorEquiped;
+    }
+
+    public void removeArmor(Armor armorToRemove){
+        for(Map.Entry<ArmorPlacement,Armor> armorEntry : getArmorEquipped().entrySet()){
+            if(armorEntry.getValue() == armorToRemove){
+                armorEntry.setValue(null);
+            }
+        }
+    }
+    public void removeArmor(ArmorPlacement armorPlacement){
+        getArmorEquipped().put(armorPlacement,null);
+    }
+
+    public void equipArmor(Armor armorToEquip){
+        getArmorEquipped().put(armorToEquip.getArmorPlacement(), armorToEquip);
+    }
+
+    public void equipWeapon(Weapon weaponToEquip){
+        equippedWeapon = weaponToEquip;
+    }
+
+    public void removeEquippedWeapon(){
+        equippedWeapon = null;
     }
 
     public double changeBalance(double amountOfMoney){
