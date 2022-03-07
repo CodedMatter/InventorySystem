@@ -7,9 +7,4 @@ public class Boots extends Armor{
     public Boots(String name, int defenceAmount) {
         super(name, defenceAmount, ArmorPlacement.BOOTS);
     }
-
-    @Override
-    public boolean canEquip() {
-        return false;
-    }
 }

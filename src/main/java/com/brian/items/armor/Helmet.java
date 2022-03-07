@@ -8,8 +8,4 @@ public class Helmet extends Armor{
         super(name, defenceAmount, ArmorPlacement.HEAD);
     }
 
-    @Override
-    public boolean canEquip() {
-        return false;
-    }
 }

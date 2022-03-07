@@ -16,13 +16,13 @@ public class Potion extends Item implements Consumable {
     }
 
     @Override
-    public void consume(Character personConsuming) {
+    public int consume(Character personConsuming) {
         if(personConsuming.hasStat(statToEffect)){
-            personConsuming.getStats().put(statToEffect,
-                    personConsuming.getSpecificStat(Stat.HEALTH)+ amount);
+            personConsuming.changeStatByAmount(statToEffect,amount);
         }
         else{
             System.out.println(personConsuming.getName() + " doesnt have a " + statToEffect.name() + " stat.");
         }
+        return personConsuming.getSpecificStat(statToEffect);
     }
 }

@@ -1,7 +1,11 @@
-package com.brian;
+package com.brian.characters;
 
+import com.brian.enums.ArmorPlacement;
 import com.brian.enums.Stat;
-import com.brian.characters.Character;
+import com.brian.items.armor.Chest;
+import com.brian.items.armor.Helmet;
+import com.brian.items.armor.Pants;
+import com.brian.items.weapons.Sword;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,9 +13,13 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class CharacterTest {
 
     Character character;
+    Helmet goldenHelmet;
+    Pants leatherPants;
 
     @BeforeEach
     void setUp(){
@@ -24,6 +32,10 @@ class CharacterTest {
         // Create test character
         character = new Character("Test Character",
                 "This is Character Description", stats, 100.00);
+         goldenHelmet = new Helmet("Golden Helmet",10);
+         character.equipArmor(goldenHelmet);
+        leatherPants = new Pants("Leather Pants",12);
+        character.equipArmor(leatherPants);
     }
 
     @Test
@@ -37,6 +49,14 @@ class CharacterTest {
     void getDescription() {
         Assert.assertEquals("Should equal: This is Character Description",
                 "This is Character Description",
+                character.getDescription());
+    }
+
+    @Test
+    void setDescription() {
+        character.setDescription("Description was Changed");
+        Assert.assertEquals("Should equal: Description was Changed",
+                "Description was Changed",
                 character.getDescription());
     }
 
@@ -71,11 +91,42 @@ class CharacterTest {
     }
 
     @Test
+    void removeArmor() {
+        character.removeArmor(goldenHelmet);
+        Assert.assertEquals("Should return null",null,character.getArmorEquipped().get(goldenHelmet));
+        character.removeArmor(ArmorPlacement.PANTS);
+        Assert.assertEquals("Should return null",null,character.getArmorEquipped().get(ArmorPlacement.PANTS));
+
+    }
+
+    @Test
+    void equipArmor() {
+        Chest goldenChest = new Chest("Golden Chest",15);
+        character.equipArmor(goldenChest);
+        Assert.assertEquals("Should return the Golden Chest armor",
+                goldenChest,
+                character.getArmorEquipped().get(ArmorPlacement.CHEST));
+    }
+
+    @Test
+    void equipWeapon() {
+        Sword basicSword = new Sword("Basic Sword", 15);
+        character.equipWeapon(basicSword);
+        Assert.assertEquals("Equipped weapon should be: Basic Sword",
+                basicSword, character.getEquippedWeapon());
+    }
+
+    @Test
+    void removeEquippedWeapon() {
+        character.removeEquippedWeapon();
+        Assert.assertEquals("Equipped weapon should be null",
+                null,
+                character.getEquippedWeapon());
+    }
+
+    @Test
     void changeBalance() {
         Assert.assertEquals("Adding 20 to balance should be 120",120,character.changeBalance(20),0.01);
         Assert.assertEquals("Removing 40 from balance should be 80",80,character.changeBalance(-40), 0.01);
     }
-
-    //TODO add a tests for armor
-
 }

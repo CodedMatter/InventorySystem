@@ -1,5 +1,6 @@
 package com.brian;
 
+import com.brian.enums.Category;
 import com.brian.items.HealthPotion;
 import com.brian.items.Item;
 import com.brian.items.ManaPotion;
@@ -11,8 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.zip.InflaterInputStream;
 
 class InventoryTest {
 
@@ -25,17 +24,21 @@ class InventoryTest {
         HealthPotion healthPotion = new HealthPotion();
         inventory.addItemToInventory(healthPotion);
         healthPotion.setPrice(15);
+        healthPotion.setWeight(5);
 
         ManaPotion manaPotion = new ManaPotion();
         inventory.addItemToInventory(manaPotion);
         manaPotion.setPrice(10);
+        manaPotion.setWeight(3);
 
         Sword basicSword = new Sword("Basic Sword", 15);
         Sword greatSword = new Sword("Great Sword", 55);
         inventory.addItemToInventory(basicSword);
         basicSword.setPrice(45);
+        basicSword.setWeight(10);
         inventory.addItemToInventory(greatSword);
         greatSword.setPrice(35);
+        greatSword.setWeight(8);
     }
 
     @Test
@@ -100,10 +103,6 @@ class InventoryTest {
     }
 
     @Test
-    void recreateItemsMapWithIDs() {
-    }
-
-    @Test
     void categoriesByPrice() {
         Assert.assertEquals("Mana potion should be first since cheapest",
                 "Mana Potion", inventory.categoriesByPrice().get(0).getName());
@@ -123,6 +122,23 @@ class InventoryTest {
 
     @Test
     void categorizeByWeight(){
+        Assert.assertEquals("Basic Sword should be first",
+                "Mana Potion",
+                inventory.categorizeByWeight().get(0).getName());
+        Assert.assertEquals("Mana potion should be last",
+                "Basic Sword",
+                inventory.categorizeByWeight().get(3).getName());
+
+    }
+
+    @Test
+    void categorizeByCategory() {
+        Assert.assertEquals("First item should be Armor category",
+                Category.POTION,
+                inventory.catergorizeByCategory().get(0).getCategory());
+        Assert.assertEquals("Last item should be Weapon category",
+                Category.WEAPON,
+                inventory.categorizeByWeight().get(3).getCategory());
 
     }
 }

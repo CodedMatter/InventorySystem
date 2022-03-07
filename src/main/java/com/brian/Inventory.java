@@ -127,7 +127,15 @@ public class Inventory {
             output += i + ")" + item + "\n";
         }
         return output;
+    }
 
+    public String getInventoryWithIDAsString(Map<Integer,Item> sortedItems){
+        String output = "";
+        for (int i = 1; i <= sortedItems.size(); i++) {
+            Item item = sortedItems.get(i);
+            output += i + ")" + item + "\n";
+        }
+        return output;
     }
 
 }
